@@ -1,0 +1,23 @@
+{
+  "name": "UPDATE_THIS",
+  "version": "0.1.0",
+  "description": "UPDATE_THIS",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickbarry/UPDATE_THIS.git"
+  },
+  "author": "Nico Greenarry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickbarry/UPDATE_THIS/issues"
+  },
+  "homepage": "https://github.com/nickbarry/UPDATE_THIS#readme"
+}
