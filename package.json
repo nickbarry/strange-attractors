@@ -6,8 +6,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "nodemon": "*",
-    "node-inspector": "~0.12.8"
+    "node-inspector": "~0.12.8",
+    "nodemon": "^1.9.2"
   },
   "scripts": {
     "test": "mocha"
