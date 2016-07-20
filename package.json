@@ -2,7 +2,9 @@
   "name": "UPDATE_THIS",
   "version": "0.1.0",
   "description": "UPDATE_THIS",
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "^2.1.6"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
