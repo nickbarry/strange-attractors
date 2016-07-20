@@ -44,8 +44,21 @@ Attractor.prototype.generatePoints = function (coeffs, numPoints = defaultNumPoi
 
 Attractor.generateCoolAttractor = function(numPoints = defaultNumPoints) {
   const coolSets = [
-    'CVQKGHQTPHTE',
     'AMTMNQQXUYGA',
+    'CVQKGHQTPHTE',
+    'FIRCDERRPVLD',
+    'GLXOESFTTPSV',
+    'GIIETPIQRRUL',
+    'GXQSNSKEECTX',
+    'HGUHDPHNSGOH',
+    'ILIBVPKJWGRR',
+    'LUFBBFISGJYS',
+    'MCRBIPOPHTBN',
+    'ODGQCNXODNYA',
+    'QFFVSLMJJGCR',
+    'UWACXDQIGKHF',
+    'VBWNBDELYHUL',
+    'WNCSLFLGIHGL',
   ];
   const chosenCoeffs = coolSets[coolSets.length - 1]; // coolSets[Math.floor(Math.random() * coolSets.length)];
 

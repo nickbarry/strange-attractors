@@ -2,7 +2,7 @@
 
 Chart.defaults.global.animation.duration = 0;
 
-const attr1 = Attractor.generateCoolAttractor(40000);
+const attr1 = Attractor.generateCoolAttractor(200000);
 //const attr1 = new Attractor('AMTMNQQXUYGA', 20000);
 console.log(attr1);
 
