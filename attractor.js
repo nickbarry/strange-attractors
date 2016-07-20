@@ -1,5 +1,7 @@
 'use strict';
 
+const defaultNumPoints = 20000;
+
 function Attractor(coeffs, includeData) {
   function letterToCoeff(ltr) {
     return Math.round(((ltr.charCodeAt(0) - 65) / 10 - 1.2) * 10) / 10;
@@ -19,13 +21,12 @@ function Attractor(coeffs, includeData) {
     coeffs = generateCoeffs();
   }
 
-  const data = includeData ? this.generatePoints(coeffs) : [];
+  const data = (typeof includeData === 'number') ? this.generatePoints(coeffs) : [];
 
   Object.assign(this, { coeffs, data });
 }
 
-Attractor.prototype.generatePoints = function (coeffs) {
-  const numPoints = 50000;
+Attractor.prototype.generatePoints = function (coeffs, numPoints = defaultNumPoints) {
   const points = [{ x: 0, y: 0 }];
 
   for (let i = 1; i < numPoints; i++) {
@@ -41,12 +42,12 @@ Attractor.prototype.generatePoints = function (coeffs) {
   return points;
 };
 
-Attractor.generateCoolAttractor = function() {
-  const numPoints = 20000;
+Attractor.generateCoolAttractor = function(numPoints = defaultNumPoints) {
   const coolSets = [
-    'AMTMNQQXUYGA'
+    'CVQKGHQTPHTE',
+    'AMTMNQQXUYGA',
   ];
-  const chosenCoeffs = coolSets[Math.floor(Math.random() * coolSets.length)];
+  const chosenCoeffs = coolSets[coolSets.length - 1]; // coolSets[Math.floor(Math.random() * coolSets.length)];
 
-  return new Attractor(chosenCoeffs, true);
+  return new Attractor(chosenCoeffs, numPoints);
 };
