@@ -2,26 +2,18 @@
 
 const defaultNumPoints = 20000;
 
-function Attractor(coeffs, includeData) {
+function Attractor(coeffs, pointsDesired = defaultNumPoints) {
   function letterToCoeff(ltr) {
-    return Math.round(((ltr.charCodeAt(0) - 65) / 10 - 1.2) * 10) / 10;
-  }
-
-  function generateCoeffs() {
-    const coeffs = [];
-    for (let i = 0; i < 12; i++) {
-      coeffs[i] = Math.random() * 2.4 - 1.2;
-    }
-    return coeffs;
+    return Math.round2(((ltr.charCodeAt(0) - 65) / 10 - 1.2), 1);
   }
 
   if (typeof coeffs === 'string') { // If they entered something like 'AMTMNQQXUYGA', convert to array of numbers
     coeffs = [].map.call(coeffs, letterToCoeff);
   } else if (coeffs === undefined || coeffs === null) {
-    coeffs = generateCoeffs();
+    coeffs = Attractor.generateCoeffs();
   }
 
-  const data = (typeof includeData === 'number') ? this.generatePoints(coeffs) : [];
+  const data = this.generatePoints(coeffs, pointsDesired);
 
   Object.assign(this, { coeffs, data });
 }
@@ -60,7 +52,29 @@ Attractor.generateCoolAttractor = function(numPoints = defaultNumPoints) {
     'VBWNBDELYHUL',
     'WNCSLFLGIHGL',
   ];
-  const chosenCoeffs = coolSets[coolSets.length - 1]; // coolSets[Math.floor(Math.random() * coolSets.length)];
+  const chosenCoeffs = coolSets[Math.floor(Math.random() * coolSets.length)];
 
   return new Attractor(chosenCoeffs, numPoints);
+};
+
+Attractor.generateCoeffs = function () {
+  const coeffs = [];
+  for (let i = 0; i < 12; i++) {
+    coeffs[i] = Math.random() * 2.4 - 1.2;
+  }
+  return coeffs;
+};
+
+
+Attractor.getPotentiallyInterestingSets = function (numSets = 9) {
+  let trialCounter = 0;
+  const sets = [];
+
+  while (trialCounter < 1000 && sets.length < numSets) {
+    const set = new Attractor(undefined, 300);
+    sets.push(set);
+    trialCounter++;
+  }
+
+  return sets;
 };

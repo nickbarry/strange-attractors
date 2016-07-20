@@ -1,14 +1,14 @@
 'use strict';
 
 Chart.defaults.global.animation.duration = 0;
-
-const attr1 = Attractor.generateCoolAttractor(200000);
+const attr1 = Attractor.generateCoolAttractor(40000);
 //const attr1 = new Attractor('AMTMNQQXUYGA', 20000);
 console.log(attr1);
 
+console.log(Attractor.getPotentiallyInterestingSets());
+
 //const firstFewCutoff = 150;
 const outliersCutoff = 200;
-
 const ctx = document.getElementById('chart');
 const chart = new Chart(ctx, {
   type: 'line',
@@ -30,9 +30,9 @@ const chart = new Chart(ctx, {
     //  pointHoverRadius: 0,
     //  data: attr1.data.slice(firstFewCutoff, outliersCutoff)
     //}, {
-      label: 'The Rest',
+      label: 'Coefficients: ' + attr1.coeffs.map(c => Math.round2(c,2)).join(', '),
       //pointBackgroundColor: 'green',
-      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBorderColor: 'purple',
       pointBorderWidth: 0,
       pointRadius: 0.1,
       pointHoverRadius: 0,
