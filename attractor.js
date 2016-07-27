@@ -53,7 +53,7 @@ Attractor.generateCoolAttractor = function(numPoints = defaultNumPoints) {
     'WNCSLFLGIHGL',
   ];
   const chooseSetNumber = -1;
-  const chosenCoeffs = (chooseSetRandomly === -1) ?
+  const chosenCoeffs = (chooseSetNumber === -1) ?
     coolSets[Math.floor(Math.random() * coolSets.length)] :
     coolSets[chooseSetNumber];
 

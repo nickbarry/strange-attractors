@@ -9,8 +9,8 @@ const attr1 = Attractor.generateCoolAttractor(40000);
 const outliersCutoff = 200;
 const dataPoints = attr1.data.slice(outliersCutoff);
 const datasets = [];
-const colors = ['orange', 'purple', 'green', 'blue', 'black', 'black', 'black', 'black', 'black'];
-const period = 3;
+const colors = ['purple', 'orange', 'green', 'blue', 'black', 'black', 'black', 'black', 'black'];
+const period = 1;
 for (let i = 0; i < period; i++) {
   datasets.push({
     pointBorderColor: colors[i],
