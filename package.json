@@ -1,27 +1,32 @@
 {
-  "name": "UPDATE_THIS",
+  "name": "Strange Attractors",
   "version": "0.1.0",
-  "description": "UPDATE_THIS",
+  "description": "Check out some cool strange attractors, and create some of your own.",
   "dependencies": {
-    "chart.js": "^2.1.6"
+    "chart.js": "^2.1.6",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "node-inspector": "~0.12.8",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "react-scripts": "0.1.0"
   },
   "scripts": {
-    "test": "mocha"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickbarry/UPDATE_THIS.git"
+    "url": "git+https://github.com/nickbarry/strange-attractors.git"
   },
   "author": "Nico Greenarry",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nickbarry/UPDATE_THIS/issues"
+    "url": "https://github.com/nickbarry/strange-attractors/issues"
   },
-  "homepage": "https://github.com/nickbarry/UPDATE_THIS#readme"
+  "homepage": "https://github.com/nickbarry/strange-attractors#readme"
 }
