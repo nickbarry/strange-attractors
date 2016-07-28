@@ -1,6 +1,8 @@
 'use strict';
 
-Chart.defaults.global.animation.duration = 0;
+import Attractor from './attractor';
+
+//Chart.defaults.global.animation.duration = 0;
 const attr1 = Attractor.generateCoolAttractor(40000);
 //console.log(attr1);
 
@@ -23,6 +25,8 @@ for (let i = 0; i < period; i++) {
 
 //const ctx = document.getElementById('chart');
 const options = {
+  responsiveAnimationDuration: 0,
+  hover: { animationDuration: 0 },
   showLines: false,
   scales: {
     xAxes: [{

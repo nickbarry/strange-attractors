@@ -1,7 +1,8 @@
-'use strict';
+import Attractor from './attractor';
+import React from 'react';
 
-Chart.defaults.global.animation.duration = 0;
-const attr1 = Attractor.generateCoolAttractor(40000);
+//Chart.defaults.global.animation.duration = 0;
+const attr1 = Attractor.generateCoolAttractor(500);
 //console.log(attr1);
 
 //console.log(Attractor.getPotentiallyInterestingSets());
@@ -23,6 +24,8 @@ for (let i = 0; i < period; i++) {
 
 //const ctx = document.getElementById('chart');
 const options = {
+  //responsiveAnimationDuration: 0,
+  //hover: { animationDuration: 0 },
   showLines: false,
   scales: {
     xAxes: [{
@@ -49,4 +52,3 @@ module.exports = React.createClass({
     return <Line data={dataPoints} options={options} width="600" height="250"/>
   }
 });
-

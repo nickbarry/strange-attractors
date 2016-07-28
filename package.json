@@ -1,10 +1,12 @@
 {
-  "name": "Strange Attractors",
+  "name": "strange-attractors",
   "version": "0.1.0",
   "description": "Check out some cool strange attractors, and create some of your own.",
   "dependencies": {
-    "chart.js": "^2.1.6",
+    "chart.js": "^1.1.1",
+    "chartjs-color": "^2.0.0",
     "react": "^15.2.1",
+    "react-chartjs": "^0.8.0",
     "react-dom": "^15.2.1"
   },
   "devDependencies": {
