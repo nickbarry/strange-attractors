@@ -4,22 +4,13 @@ angular.module('strange-attractors', [
   .controller('Scatterplot', function($scope, Attractors) {
     Chart.defaults.global.animation.duration = 0;
 
-    const attr1 = Attractors.Attractor.generateCoolAttractor(40000);
-
     const outliersCutoff = 200;
-    const dataPoints = attr1.data.slice(outliersCutoff);
-    const datasets = [];
-    const colors = ['purple', 'orange', 'green', 'blue', 'black', 'black', 'black', 'black', 'black'];
-    const period = 1;
-    for (let i = 0; i < period; i++) {
-      datasets.push({
-        pointBorderColor: colors[i],
-        pointBorderWidth: 0,
-        pointRadius: 0.1,
-        pointHoverRadius: 0,
-        data: (period === 1) ? dataPoints : dataPoints.filter((point, idx) => (idx % period) === i)
-      });
-    }
+    const datasets = [{
+      pointBorderColor: 'purple',
+      pointBorderWidth: 0,
+      pointRadius: 0.1,
+      pointHoverRadius: 0,
+    }];
 
     const ctx = document.getElementById('chart');
     const options = {
@@ -36,18 +27,21 @@ angular.module('strange-attractors', [
         enabled: false
       }
     };
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        datasets: datasets
-      },
-      options,
-    });
+
+    let chart;
+    $scope.destroy = function() {
+      chart && chart.destroy();
+    };
+
+    $scope.create = function() {
+      const attr1 = Attractors.Attractor.generateCoolAttractor(20000);
+      datasets[0].data = attr1.data.slice(outliersCutoff);
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          datasets: datasets
+        },
+        options,
+      });
+    }
   });
-
-
-
-//console.log(attr1);
-
-//console.log(Attractors.Attractor.getPotentiallyInterestingSets());
-
