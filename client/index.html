@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="strange-attractors">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strange Attractors</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <link rel="stylesheet" href="styles/styles.css" type="text/css">
+</head>
+<body ng-controller="Scatterplot">
+<h1>Straaaaaange Attractors</h1>
+<canvas id="chart"></canvas>
+<ul ng-repeat="attractor in data">
+  <li>{{ attractor }}</li>
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+
+<script src="app.js"></script>
+<script src="/services/attractors.services.js"></script>
+</body>
+</html>
