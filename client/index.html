@@ -9,10 +9,14 @@
 </head>
 <body>
 <div ng-controller="Scatterplot"><h1>Straaaaaange Attractors</h1>
-  <button ng-click="create()">Create</button>
+  <!--<button ng-click="create()">Create</button>-->
+  <!--<button ng-click="destroy()">Clear</button>-->
+  <!--<br>-->
+  <button ng-click="create('cool')">Create Cool</button>
+  <button ng-click="create()">Create Random</button>
   <button ng-click="destroy()">Clear</button>
 
-  <canvas id="chart" ng-init="create()"></canvas>
+  <canvas id="chart"></canvas>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 
