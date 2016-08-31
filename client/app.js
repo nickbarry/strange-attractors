@@ -8,7 +8,6 @@ angular.module('strange-attractors', [
   $scope.numberOfPanes = 1;
   let nextCoolSetIndex = 0;
 
-  const OUTLIERS_CUTOFF = 200;
   const datasets = [{
     pointBorderColor: 'purple',
     pointBorderWidth: 0,
@@ -43,7 +42,7 @@ angular.module('strange-attractors', [
       index = nextCoolSetIndex;
     }
     const attractor = Attractors.getAttractors(1, $scope.pointsToDisplay, type, index)[0];
-    datasets[0].data = attractor.data.slice(OUTLIERS_CUTOFF);
+    datasets[0].data = attractor.data.slice(Attractors.OUTLIERS_CUTOFF);
     chart = new Chart(ctx, {
       type: 'line',
       data: { datasets },

@@ -1,6 +1,7 @@
 angular.module('attractors.services', [])
 .factory('Attractors', function(Tests, Utils) {
   const DEFAULT_POINTS = 500;
+  const OUTLIERS_CUTOFF = 200;
 
   function newCoeffs() {
     const coeffs = [];
@@ -107,7 +108,7 @@ angular.module('attractors.services', [])
       const data = generateData(coeffs, numPoints, initialData);
       const attractor = { coeffs, data };
       attractorsList.push(attractor);
-      console.log(`You skipped over ${countGoesToInfinity} sets that went to infinity, and ${countBoringSet} sets that were boring.`);
+      console.log(`You skipped ${countGoesToInfinity} sets that went to infinity, and ${countBoringSet} boring sets.`);
     }
 
     // Next, finish generating the right number of points for each attractor
@@ -118,17 +119,31 @@ angular.module('attractors.services', [])
   }
 
   return {
-    getAttractors,
+    getAttractors, OUTLIERS_CUTOFF,
   };
 })
 .factory('Tests', function(Utils) {
-  function isSetInteresting(data) {
+  function isRepetitive(data) {
     // If the data is in a loop (we check up to a period of 25), return false (periodic == uninteresting)
     const REPEAT_CHECK_PERIOD = 25;
-    const SIG_DIGS_TO_CHECK = 6;
+    const SIG_DIGS_TO_CHECK = 4;
     const recentXVals = data.slice(-REPEAT_CHECK_PERIOD, -1).map(point => Utils.roundTo(point.x, SIG_DIGS_TO_CHECK));
     const lastXVal = Utils.roundTo(data[data.length - 1].x, SIG_DIGS_TO_CHECK);
     if (~recentXVals.indexOf(lastXVal)) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function isBoringLoop(data) {
+    const sorted = data.slice()
+
+    return false;
+  }
+
+  function isSetInteresting(data) {
+    if (isRepetitive(data) || isBoringLoop(data)) {
       return false;
     }
 
