@@ -131,7 +131,7 @@ angular.module('attractors.services', [])
       const data = generateData(coeffs, numPoints, initialData);
       const attractor = { coeffs, data };
       attractorsList.push(attractor);
-      console.log(`You skipped over ${countGoesToInfinity} sets that went to infinity, and ${countBoringSet} sets that were boring. The interesting set was: `, JSON.stringify(attractor.coeffs));
+      console.log(`You skipped over ${countGoesToInfinity} sets that went to infinity, and ${countBoringSet} sets that were boring.`);
     }
 
     // Next, finish generating the right number of points for each attractor

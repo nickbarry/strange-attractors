@@ -16,6 +16,7 @@
   <button ng-click="create('cool')">Random Cool Attractor</button>
   <button ng-click="create()">Create Random Attractor</button>
   <button ng-click="destroy()">Clear</button>
+  <p>{{ coeffs && 'Coefficients: ' + coeffs.join(', ') }}</p>
 
   <canvas id="chart"></canvas>
 </div>

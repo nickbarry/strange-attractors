@@ -49,6 +49,7 @@ angular.module('strange-attractors', [
       data: { datasets },
       options,
     });
+    $scope.coeffs = attractor.coeffs;
     if (inNextMode) {
       nextCoolSetIndex++;
     }
