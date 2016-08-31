@@ -6,6 +6,7 @@ angular.module('strange-attractors', [
 
   $scope.pointsToDisplay = 40000;
   $scope.numberOfPanes = 1;
+  let nextCoolSetIndex = 0;
 
   const OUTLIERS_CUTOFF = 200;
   const datasets = [{
@@ -36,21 +37,20 @@ angular.module('strange-attractors', [
     chart && chart.destroy();
   };
 
-  $scope.create = function(type) {
-    //const getOneSet = {
-    //  cool: points => Attractors.Attractor.generateCoolAttractor(points),
-    //  random: points => Attractors.Attractor.getPotentiallyInterestingAttractors(1, points)[0],
-    //};
-    //const attractor = getOneSet[type]($scope.pointsToDisplay);
-    const attractor = Attractors.getAttractors(1, $scope.pointsToDisplay, type)[0];
-    //console.log(attractor.data.slice(-10));
+  $scope.create = function(type, index = -1) {
+    let inNextMode = index === 'next';
+    if (inNextMode) {
+      index = nextCoolSetIndex;
+    }
+    const attractor = Attractors.getAttractors(1, $scope.pointsToDisplay, type, index)[0];
     datasets[0].data = attractor.data.slice(OUTLIERS_CUTOFF);
     chart = new Chart(ctx, {
       type: 'line',
-      data: {
-        datasets: datasets
-      },
+      data: { datasets },
       options,
     });
+    if (inNextMode) {
+      nextCoolSetIndex++;
+    }
   }
 });
