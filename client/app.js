@@ -4,7 +4,7 @@ angular.module('strange-attractors', [
 .controller('Scatterplot', function($scope, Attractors) {
   Chart.defaults.global.animation.duration = 0;
 
-  $scope.pointsToDisplay = 40000;
+  $scope.pointsToDisplay = 10000;
   $scope.numberOfPanes = 1;
   let nextCoolSetIndex = 0;
 
@@ -42,7 +42,7 @@ angular.module('strange-attractors', [
       index = nextCoolSetIndex;
     }
     const attractor = Attractors.getAttractors(1, $scope.pointsToDisplay, type, index)[0];
-    datasets[0].data = attractor.data.slice(Attractors.OUTLIERS_CUTOFF);
+    datasets[0].data = attractor.data;
     chart = new Chart(ctx, {
       type: 'line',
       data: { datasets },
