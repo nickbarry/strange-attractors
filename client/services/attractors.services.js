@@ -41,7 +41,7 @@ angular.module('attractors.services', [])
         cf[6]         + cf[7]  * x0 + cf[8]  * x0*x0 +
         cf[9] * x0*y0 + cf[10] * y0 + cf[11] * y0*y0
       ];
-      if (isNaN(x1) || isNaN(y1)) {
+      if (x1 > 20 || y1 > 20) {
         break; // Exit the loop; don't add the new points to `data`
       }
       data[i] = { x: x1, y: y1 };
