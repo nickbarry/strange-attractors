@@ -4,7 +4,7 @@ angular.module('strange-attractors', [
 .controller('Scatterplot', function($scope, Attractors) {
   Chart.defaults.global.animation.duration = 0;
 
-  $scope.pointsToDisplay = 10000;
+  $scope.pointsToDisplay = 40000;
   $scope.numberOfPanes = 1;
   let nextCoolSetIndex = 0;
 
